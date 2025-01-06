@@ -1,17 +1,19 @@
+@use 'config';
+
 $light: ();
 
 $dark: ();
 
 @function to-rem($value) {
-  @return math.div($value, 16) * 1rem;
+	@return math.div($value, 16) * 1rem;
 }
 
 @mixin emit($theme) {
-  @each $token, $value in $theme {
-    --#{config.$prefix}-#{$token}: #{$value};
-  }
+	@each $token, $value in $theme {
+		--#{config.$prefix}-#{$token}: #{$value};
+	}
 }
 
 @function token($name) {
-  @return var(--#{config.$prefix}-#{$name});
+	@return var(--#{config.$prefix}-#{$name});
 }

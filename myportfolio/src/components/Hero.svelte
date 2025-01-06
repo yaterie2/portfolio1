@@ -17,13 +17,14 @@
 </section>
 
 <style lang="scss">
+
   .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
     color: #fff;
-    background: linear-gradient(180deg, #1e1e2f, #2c2c3d);
+    // background: #242029;
 
     .content {
       h1 {
