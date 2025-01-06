@@ -20,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 8rem;
     background-color: #2C2731;
 
     .logo {
@@ -35,7 +35,8 @@
       li a {
         color: #fff;
         text-decoration: none;
-        font-weight: 500;
+        font-size: 1.5rem;
+        font-weight: 200;
         &:hover {
           color: #4caf50;
         }
