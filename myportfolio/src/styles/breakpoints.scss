@@ -1,0 +1,23 @@
+@use "theme";
+
+$desktop-breakpoint: 64rem;
+$tablet-breakpoint: 42.9rem;
+// $mobile-breakpoint: 30rem;
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) and (max-width: calc(#{$desktop-breakpoint} - 0.0625rem)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: calc(#{$tablet-breakpoint} - 0.0625rem)) {
+    @content;
+  }
+}
