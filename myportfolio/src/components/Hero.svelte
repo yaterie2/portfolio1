@@ -166,6 +166,10 @@ const codingSkills = [
   margin-top: 6.2rem;
 }
 
+.svg {
+  width: 100%;
+}
+
 .rectangle-wrapper {
   position: relative;
   width: 100%;
