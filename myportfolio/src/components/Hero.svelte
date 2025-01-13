@@ -36,7 +36,7 @@ const codingSkills = [
   </div>
 </section>
 <section class="about">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1512" height="55" viewBox="0 0 1512 55" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1512" height="55" viewBox="0 0 1512 55" preserveAspectRatio="none">
 <path d="M0 7.53195C0 7.53195 133.956 1.69437 282 0.288482C577.848 -2.52102 838.053 16.1535 1134 14.6213C1281.87 13.8558 1512 7.53195 1512 7.53195V55H0V7.53195Z" fill="url(#paint0_linear_250_71)"/>
 <defs>
 <linearGradient id="paint0_linear_250_71" x1="1.74677e-07" y1="44.5" x2="1512" y2="107.5" gradientUnits="userSpaceOnUse">
