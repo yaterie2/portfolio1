@@ -22,7 +22,7 @@
 
   // Array of project data
   const projects = [
-    { slug: "kuren", title: "KUREN", image: "/project1.png" },
+    { slug: "kuren", title: "KUREN", image: "/k1.png" },
     { slug: "rehub", title: "ReHub", image: "/project2.png" },
     { slug: "aeroom", title: "aeroom", image: "/project3.png" },
     { slug: "varroa", title: "Varroa", image: "/project4.png" },
@@ -473,7 +473,6 @@ img {
   }
 }
 
-
   /* Individual size and positioning for varied look */
   .bubble-1 { width: 22rem; height: 22rem;}
   .bubble-2 { width: 22rem; height: 22rem;}
@@ -510,6 +509,5 @@ img {
     }
   }
 }
-
 
 </style>
