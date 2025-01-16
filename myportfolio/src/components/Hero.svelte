@@ -93,35 +93,35 @@
       </div>
     </div>
     <div class="project-bubble bubble-2">
-      <img src="/project2.png" alt="Project 2" />
+      <img src="/r2.png" alt="Project 2" />
       <div class="bubble-content">
         <p>ReHub</p>
         <a href="/rehub"><button>View Details</button></a>
       </div>
     </div>
     <div class="project-bubble bubble-3">
-      <img src="/project3.png" alt="Project 3" />
+      <img src="/a3.png" alt="Project 3" />
       <div class="bubble-content">
         <p>aeroom</p>
         <a href="/aeroom"><button>View Details</button></a>
       </div>
     </div>
     <div class="project-bubble bubble-4">
-      <img src="/project4.png" alt="Project 4" />
+      <img src="/v4.png" alt="Project 4" />
       <div class="bubble-content">
         <p>Varroa</p>
         <a href="/varroa"><button>View Details</button></a>
       </div>
     </div>
     <div class="project-bubble bubble-5">
-      <img src="/project5.png" alt="Project 5" />
+      <img src="/s5.png" alt="Project 5" />
       <div class="bubble-content">
         <p>SimpleChat</p>
         <a href="/simplechat"><button>View Details</button></a>
       </div>
     </div>
     <div class="project-bubble bubble-6">
-      <img src="/project6.png" alt="Project 6" />
+      <img src="/d6.png" alt="Project 6" />
       <div class="bubble-content">
         <p>DB Navigator Concept</p>
         <a href="/db-navigator-concept"><button>View Details</button></a>
