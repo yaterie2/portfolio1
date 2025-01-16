@@ -57,7 +57,7 @@ I am a passionate digital product designer and developer, blending creativity wi
   <p class="skills-description">
   Blending design and coding expertise to craft intuitive digital products, bridging creativity and technology to deliver meaningful user experiences.
 </p>
-<div class="skills-column first-column">
+<!-- <div class="skills-column first-column">
       <h3>Design Methods</h3>
       <div class="skills-list">
         {#each designSkills as skill}
@@ -66,7 +66,7 @@ I am a passionate digital product designer and developer, blending creativity wi
           </div>
         {/each}
       </div>
-    </div>
+    </div> -->
   <div class="skills-wrapper">
     <div class="skills-column left-column">
       <h3>Design Tools</h3>
