@@ -23,11 +23,11 @@
   // Hardcoded project images
   const projects = [
     { slug: "kuren", title: "KUREN", image: "/k1.png" },
-    { slug: "rehub", title: "ReHub", image: "/project2.png" },
-    { slug: "aeroom", title: "aeroom", image: "/project3.png" },
-    { slug: "varroa", title: "Varroa", image: "/project4.png" },
-    { slug: "simplechat", title: "SimpleChat", image: "/project5.png" },
-    { slug: "db-navigator-concept", title: "DB Navigator Concept", image: "/project6.png" }
+    { slug: "rehub", title: "ReHub", image: "/r2.png" },
+    { slug: "aeroom", title: "aeroom", image: "/a3.png" },
+    { slug: "varroa", title: "Varroa", image: "/v4.png" },
+    { slug: "simplechat", title: "SimpleChat", image: "/s5.png" },
+    { slug: "db-navigator-concept", title: "DB Navigator Concept", image: "/d6.png" }
   ];
 </script>
 

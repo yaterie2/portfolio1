@@ -5,7 +5,7 @@
     idea: "KUREN, named after the Japanese word for owl, envisions a future where sleep and health are optimized through advanced technology. The app prototype aims to monitor sleep patterns and efficiency by measuring data such as EEG activity, breathing, and other vital indicators. Accompanied by a conceptual smart sleep mask equipped with built-in sensors, KUREN offers a seamless way to track sleep and improve overall well-being. Although this project represents a future scenario, it explores the potential of integrating innovative hardware with user-focused applications.",
     process: "The development process began in Figma, starting with initial wireframes to define the core structure and functionality of the app. Iterative prototyping followed, transitioning from low-fidelity designs to a polished high-fidelity prototype. A significant focus was placed on refining user flows, ensuring an intuitive and efficient experience for tracking sleep metrics and accessing personalized insights. The team considered how users would interact with both the app and the envisioned sleep mask to create a cohesive system.",
     result: "Through this speculative future scenario, the project demonstrates the integration of innovative design with health technology. The final prototype highlights creative problem-solving, presenting a vision for how sleep tracking could transform personal well-being in the years to come.",
-    images: ["/project1.png", "/kuren1.png", "/kuren2.png"] // Use your own image paths here
+    images: ["/k1.png", "/kuren1.png", "/kuren2.png"] // Use your own image paths here
   };
 </script>
 

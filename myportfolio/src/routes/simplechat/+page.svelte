@@ -5,7 +5,7 @@
     idea: "For the Designmethoden UserResearch subject, we were tasked with creating a college intern messenger application to replace Slack, with the goal of eliminating its subscription. The challenge was to design an intuitive and efficient communication tool specifically tailored to students, alumni, professors, and even companies, enhancing collaboration within the academic community.",
     process: "We conducted interviews with students, alumni, and professors to identify their communication needs. Using design thinking methods like empathy mapping, user personas, and journey mapping, we developed the necessary features and user flows. User testing helped us refine the app's design for better usability.",
     result: "The final outcome of our work was a web app that served as a comprehensive communication tool for students, alumni, professors, and companies. We delivered a high-fidelity prototype in Figma, showcasing the app's core features, including messaging, file sharing, and event scheduling. SimpleChat effectively streamlined communication across academic and professional networks, improving collaboration and connection within the community.",
-    images: ["/project5.png", "/sc1.png", "/sc2.png", "/sc3.png"] // Use your own image paths here
+    images: ["/s5.png", "/sc1.png", "/sc2.png", "/sc3.png"] // Use your own image paths here
   };
 </script>
 

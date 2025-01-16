@@ -5,7 +5,7 @@
     idea: "ReHub is an app designed to support rehabilitation patients in managing their recovery from home, effectively and conveniently. Users can add rehabilitation exercises to their routine or receive personalized plans created by their doctors or physiotherapists. The app provides flexibility in how instructions are delivered: users can choose voice-guided directions or rely on the simple and intuitive interface, even from a few meters away.",
     process: "The app utilizes Google's Mediapipe framework for real-time body movement tracking, enabling precise motion analysis during exercises. Users are guided to position their devices so the camera captures their full body while performing the exercises. The application was developed with SvelteKit and Vite, offering fast and reactive user interfaces. For development purposes, ngrok is used to create secure tunnels between local machines and public URLs, facilitating easy demonstration of the app.",
     result: "ReHub empowers patients to take control of their rehabilitation journey with greater independence and flexibility. The automatic tracking of exercises and visual progress charts help maintain motivation and encourage consistent practice. By providing personalized exercise plans and an intuitive user interface, the app adapts to individual needs, ensuring a smooth recovery experience. ReHub combines technical precision and user-centered design to make rehabilitation accessible and engaging for everyone..",
-    images: ["/project2.png", "/rehub3.png", "/rehub2.png"] // Use your own image paths here
+    images: ["/r2.png", "/rehub3.png", "/rehub2.png"] // Use your own image paths here
   };
 </script>
 

@@ -5,7 +5,7 @@
     idea: "This project introduces an IoT system designed to offer users real-time insights into their indoor climate. By leveraging advanced sensors and intuitive applications, it aims to create a healthier and more sustainable living environment. Users gain access to essential environmental data, including temperature, humidity, CO₂ levels, and dust concentration, enabling them to make informed choices about their surroundings.",
     process: "Environmental data is collected through state-of-the-art sensors and transmitted via MQTT to a central server for processing. The development process focused on creating a Svelte-based user interface that ensures smooth interactions across web and mobile platforms. Additionally, a scalable backend was implemented to support real-time updates and provide detailed analytics, combining technical efficiency with user-centered design principles.",
     result: "æroom successfully delivers an effective solution for real-time indoor climate monitoring. The system combines innovative technology with a clean and accessible interface, empowering users to optimize their living spaces. By integrating functionality with design, this project demonstrates the potential of IoT systems to enhance everyday life.",
-    images: ["/project3.png", "/ae1.png"] // Use your own image paths here
+    images: ["/a3.png", "/ae1.png"] // Use your own image paths here
   };
 </script>
 

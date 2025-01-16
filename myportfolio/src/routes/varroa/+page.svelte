@@ -5,7 +5,7 @@
     idea: "Bees are fascinating creatures that play a crucial role in ecosystems, yet they face numerous challenges. This project focused on supporting beekeepers in combating one of the most severe threats to bee populations: the Varroa mite. By designing an app prototype, we aimed to provide an accessible tool to monitor and manage mite infestations effectively.",
     process: "The project followed the double diamond method to thoroughly explore the problem space and refine our approach. After selecting bees as our subject within the broader farm animal category, we conducted extensive research to identify critical issues. Interviews with professional and hobbyist beekeepers provided diverse insights, helping us pinpoint the Varroa mite as the most pressing challenge. With the insights gained, we researched existing treatment methods and developed the app prototype using Figma, employing user research and iterative testing to ensure usability and effectiveness.",
     result: "The final prototype was an app designed to help beekeepers track Varroa mite infestations. It enables users to record mite counts and integrates data such as weather and temperature to provide AI-driven treatment recommendations. This project demonstrates how technology, combined with thoughtful design, can address ecological and agricultural challenges in a meaningful way.",
-    images: ["/project4.png", "/image2.png"] // Use your own image paths here
+    images: ["/v4.png", "/image2.png"] // Use your own image paths here
   };
 </script>
 

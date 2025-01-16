@@ -5,7 +5,7 @@
     idea: "The goal of this project was to create a poster about the DB Navigator app, explaining its concept and visualizing key aspects such as features, business, value proposition, and client profile. We aimed to communicate the essence of the app in a clear and engaging way..",
     process: "We began by analyzing the app’s base colors and design, then decided to switch to a more colorful layout to make the poster more visually appealing. To ensure clarity, we simplified the content significantly, focusing on the most important elements of the app. The design was created in Figma, followed by printing the final version.",
     result: "The outcome was a vibrant, simplified poster that effectively communicated the DB Navigator app’s concept and value proposition. It visually represented the app’s features, business model, and target audience, providing an engaging overview of the product.",
-    images: ["/project6.png", "/db2.png", "/db1.png"] // Use your own image paths here
+    images: ["/d6.png", "/db2.png", "/db1.png"] // Use your own image paths here
   };
 </script>
 
