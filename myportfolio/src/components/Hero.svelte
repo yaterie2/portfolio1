@@ -11,13 +11,13 @@
 
   const codingSkills = [
     { name: "HTML", logo: "/html.png" },
-    { name: "JavaScript", logo: "/javascript.png" },
+    { name: "JavaScript", logo: "/js.png" },
     { name: "CSS", logo: "/css.png" },
     { name: "C/C++", logo: "/c.png" },
     { name: "React", logo: "/react.png" },
-    { name: "Nextjs", logo: "/nextjs.png" },
+    { name: "Nextjs", logo: "/nj.png" },
     { name: "Nodejs", logo: "/nodejs.png" },
-    { name: "Svelte", logo: "/svelte.png" }
+    { name: "Svelte", logo: "/sv.png" }
   ];
 
   // Hardcoded project images
