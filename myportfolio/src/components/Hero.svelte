@@ -47,7 +47,7 @@
   <div class="about-content">
     <h2>About Me</h2>
     <p>
-      I am a passionate digital product designer and developer, combining creativity and technical methods to build meaningful user experiences.<br> The expertise I acquired at the HfG Schwäbisch Gmünd, in four semesteres, helps me unite design and functionality, creating seamless, impactful digital solutions.
+      I am a passionate digital product designer and developer, combining creativity and technical methods to build meaningful user experiences.<br> The expertise I acquired at the HfG Schwäbisch Gmünd, in four semesters, helps me unite design and functionality, creating seamless, impactful digital solutions.
     </p>
   </div>
 </section>
