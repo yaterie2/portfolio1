@@ -20,7 +20,7 @@
     { name: "Svelte", logo: "/svelte.png" }
   ];
 
-  // Array of project data
+  // Hardcoded project images
   const projects = [
     { slug: "kuren", title: "KUREN", image: "/k1.png" },
     { slug: "rehub", title: "ReHub", image: "/project2.png" },
@@ -84,17 +84,49 @@
 <section class="projects" id="projects">
   <h2>Projects</h2>
   <div class="projects-bubble-wrapper">
-    {#each projects as project, index}
-      <div class="project-bubble bubble-{index + 1}">
-        <img src={project.image} alt="Project {index + 1}" />
-        <div class="bubble-content">
-          <p>{project.title}</p>
-          <a href={`/${project.slug}`}>
-            <button>View Details</button>
-          </a>
-        </div>
+    <!-- Hardcoded project images -->
+    <div class="project-bubble bubble-1">
+      <img src="/k1.png" alt="Project 1" />
+      <div class="bubble-content">
+        <p>KUREN</p>
+        <a href="/kuren"><button>View Details</button></a>
       </div>
-    {/each}
+    </div>
+    <div class="project-bubble bubble-2">
+      <img src="/project2.png" alt="Project 2" />
+      <div class="bubble-content">
+        <p>ReHub</p>
+        <a href="/rehub"><button>View Details</button></a>
+      </div>
+    </div>
+    <div class="project-bubble bubble-3">
+      <img src="/project3.png" alt="Project 3" />
+      <div class="bubble-content">
+        <p>aeroom</p>
+        <a href="/aeroom"><button>View Details</button></a>
+      </div>
+    </div>
+    <div class="project-bubble bubble-4">
+      <img src="/project4.png" alt="Project 4" />
+      <div class="bubble-content">
+        <p>Varroa</p>
+        <a href="/varroa"><button>View Details</button></a>
+      </div>
+    </div>
+    <div class="project-bubble bubble-5">
+      <img src="/project5.png" alt="Project 5" />
+      <div class="bubble-content">
+        <p>SimpleChat</p>
+        <a href="/simplechat"><button>View Details</button></a>
+      </div>
+    </div>
+    <div class="project-bubble bubble-6">
+      <img src="/project6.png" alt="Project 6" />
+      <div class="bubble-content">
+        <p>DB Navigator Concept</p>
+        <a href="/db-navigator-concept"><button>View Details</button></a>
+      </div>
+    </div>
   </div>
 </section>
 
