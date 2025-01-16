@@ -1,30 +1,37 @@
 <script>
   export let name = "Yannick Schwab";
-  export let title = "Digital Product Designer and Developer";
   export let subtitle = "Connecting the worlds of design and coding";
 
   const designSkills = [
-  { name: "Adobe Illustrator", logo: "/adobe-illustrator.png" },
-  { name: "Adobe InDesign", logo: "/adobe-indesign.png" },
-  { name: "Adobe Photoshop", logo: "/adobe-photoshop.png" },
-  { name: "Figma", logo: "/figma.png" }
-];
+    { name: "Adobe Illustrator", logo: "/adobe-illustrator.png" },
+    { name: "Adobe InDesign", logo: "/adobe-indesign.png" },
+    { name: "Adobe Photoshop", logo: "/adobe-photoshop.png" },
+    { name: "Figma", logo: "/figma.svg" }
+  ];
 
-const codingSkills = [
-  { name: "HTML", logo: "/html.png" },
-  { name: "JavaScript", logo: "/javascript.png" },
-  { name: "CSS", logo: "/css.png" },
-  { name: "C/C++", logo: "/c.png" },
-  { name: "React", logo: "/react.png" },
-  { name: "Nextjs", logo: "/nextjs.png" },
-  { name: "Nodejs", logo: "/nodejs.png" },
-  { name: "Svelte", logo: "/svelte.png" }
-];
+  const codingSkills = [
+    { name: "HTML", logo: "/html.png" },
+    { name: "JavaScript", logo: "/javascript.png" },
+    { name: "CSS", logo: "/css.png" },
+    { name: "C/C++", logo: "/c.png" },
+    { name: "React", logo: "/react.png" },
+    { name: "Nextjs", logo: "/nextjs.png" },
+    { name: "Nodejs", logo: "/nodejs.png" },
+    { name: "Svelte", logo: "/svelte.png" }
+  ];
 
-
+  // Array of project data
+  const projects = [
+    { slug: "kuren", title: "KUREN", image: "/project1.png" },
+    { slug: "rehub", title: "ReHub", image: "/project2.png" },
+    { slug: "aeroom", title: "aeroom", image: "/project3.png" },
+    { slug: "varroa", title: "Varroa", image: "/project4.png" },
+    { slug: "simplechat", title: "SimpleChat", image: "/project5.png" },
+    { slug: "db-navigator-concept", title: "DB Navigator Concept", image: "/project6.png" }
+  ];
 </script>
 
-<section class="hero">
+<section class="hero" id="hero">
   <div class="profile">
     <img src="/PortraitPortfolio.png" alt="portrait" class="portrait" />
     <div class="circle"></div>
@@ -35,26 +42,23 @@ const codingSkills = [
     <p>{subtitle}</p>
   </div>
 </section>
-<section class="about">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1512" height="55" viewBox="0 0 1512 55" preserveAspectRatio="none">
-<path d="M0 7.53195C0 7.53195 133.956 1.69437 282 0.288482C577.848 -2.52102 838.053 16.1535 1134 14.6213C1281.87 13.8558 1512 7.53195 1512 7.53195V55H0V7.53195Z" fill="url(#paint0_linear_250_71)"/>
-<defs>
-<linearGradient id="paint0_linear_250_71" x1="1.74677e-07" y1="44.5" x2="1512" y2="107.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#79FF5F"/>
-<stop offset="1" stop-color="#5FF4FF"/>
-</linearGradient>
-</defs>
-</svg>
-<div class="rectangle-wrapper">
-      <div class="circle big-circle"></div>
-      <div class="circle small-circle"></div>
-      <div class="rectangle"></div>
-    </div>
+
+<section class="about" id="about-me">
+  <div class="about-content">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate digital product designer and developer, combining creativity and technical methods to build meaningful user experiences.<br> The expertise I acquired at the HfG Schwäbisch Gmünd, in four semesteres, helps me unite design and functionality, creating seamless, impactful digital solutions.
+    </p>
+  </div>
 </section>
-<section class="skills">
+
+<section class="skills" id="skills">
   <h2>Skills</h2>
+  <p class="skills-description">
+  Blending design and coding expertise to craft intuitive digital products, bridging creativity and technology to deliver meaningful user experiences.
+</p>
   <div class="skills-wrapper">
-    <div class="skills-column">
+    <div class="skills-column left-column">
       <h3>Design Tools</h3>
       <div class="skills-list">
         {#each designSkills as skill}
@@ -64,7 +68,7 @@ const codingSkills = [
         {/each}
       </div>
     </div>
-    <div class="skills-column">
+    <div class="skills-column right-column">
       <h3>Coding Tools</h3>
       <div class="skills-list">
         {#each codingSkills as skill}
@@ -76,160 +80,280 @@ const codingSkills = [
     </div>
   </div>
 </section>
-<section class="projects">
+
+<section class="projects" id="projects">
   <h2>Projects</h2>
   <div class="projects-bubble-wrapper">
-    {#each Array(6) as _, index}
+    {#each projects as project, index}
       <div class="project-bubble bubble-{index + 1}">
-        <img src="/project{index + 1}.png" alt="Project {index + 1}" />
+        <img src={project.image} alt="Project {index + 1}" />
         <div class="bubble-content">
-          <p>Project {index + 1}</p>
-          <button>View Details</button>
+          <p>{project.title}</p>
+          <a href={`/${project.slug}`}>
+            <button>View Details</button>
+          </a>
         </div>
       </div>
     {/each}
   </div>
 </section>
 
+<section class="impressum">
+  <div class="impressum-rectangle"></div>
+  <ul>
+    <li><strong>Name</strong> Yannick Schwab</li>
+    <li><strong>Location</strong> Stuttgart, Germany</li>
+    <li><strong>Contact</strong> schwabyx@t-online.de, yannick.schwab@hfg.gmuend</li>
+    <li><strong>College</strong> Hochschule für Gestaltung Schwäbisch Gmünd</li>
+  </ul>
+</section>
+
 <style lang="scss">
   .hero {
-    margin-top: 8rem;
-    display: flex;
-    justify-content: space-between; /* Space between profile and intro */
-    align-items: center; /* Align items vertically */
-    padding: 8rem;
-    color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 8vw;
+  color: #fff;
+  overflow-x: hidden; /* Prevent content overflow */
+  position: relative;
+}
 
 .profile {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Centers both portrait and circle horizontally */
-  justify-content: center;  /* Centers both portrait and circle vertically */
-  position: relative;  /* Ensures correct stacking order */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .portrait {
-  border-radius: 50%;
+  border-radius: 0%;
   width: 426px;
   height: 420px;
   object-fit: cover;
-  margin-left: -20px;  /* Adjust this value to shift the portrait to the left */
-  margin-bottom: -32px;
+  // transform: translateY(-55px);
+  transform: translateX(-12px);
   z-index: 1;
 }
 
 .circle {
-  width: 400px;
-  height: 400px;
+  width: 20rem;
+  height: 20rem;
   background: linear-gradient(100deg, #79FF5F 5.22%, #5FF4FF 95.51%);
-  border-radius: 50%;
-  position: absolute;  /* Positions the circle on top of the portrait */
-  top: 50%;  /* Moves the circle vertically */
-  left: 50%;  /* Centers the circle horizontally */
-  transform: translate(-50%, -50%);  /* Adjusts the position of the circle */
+  border-radius: 10%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 0;
+
+  /* Make the inside transparent */
+  mask: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 86%);
+  -webkit-mask: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 86%);
 }
 
+
 .intro {
-  max-width: 70%; /* Adjust intro width as needed */
-  text-align: left; /* Align text to the left */
+  max-width: 70%;
+  text-align: left;
+  z-index: 1;
+  background-color: #242029;
+  padding: 2rem;
   
-  h1 {
-    background: linear-gradient(90deg, #79FF5F 29.52%, #5FF4FF 39.35%);
+  h1, h2, p {
+    overflow-wrap: break-word;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem; /* Reduce space below h1 */
+    color: transparent;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
     font-size: 2.3rem;
     font-weight: 200;
+    background: linear-gradient(90deg, #79FF5F 29.52%, #5FF4FF 39.35%);
+    background-clip: text;
   }
 
   h2 {
     font-size: 4.1rem;
     font-weight: 600;
-    margin-top: 0.2rem; /* Reduce space above h2 */
-    margin-bottom: 1rem; /* Control the space below h2 */
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
     background: linear-gradient(90deg, #79FF5F 18.22%, #5FF4FF 55.51%);
-    -webkit-background-clip: text;
-    color: transparent; /* Make text color transparent to show the gradient */
+    background-clip: text;
   }
 
   p {
     font-size: 2.3rem;
     font-weight: 200;
+    color: #ffffff;
   }
-}
 }
 
 .about {
-//   padding: 2rem;
-  margin-top: 6.2rem;
-}
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  margin: 8rem 8vw;
+  padding: 4rem;
+  background: linear-gradient(90deg, #79ff5f 20%, #5ff4ff 80%);
+  border-radius: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 
-.svg {
-  width: 100%;
-}
+  &-content {
+    flex: 1;
+    max-width: 50%;
+    color: #f2eff5;
 
-.rectangle-wrapper {
-  position: relative;
-  width: 100%;
-  height: 12.5rem; /* 200px to rem */
-}
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #79ff5f;
+      background: #242029;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-.rectangle {
-  width: 100%;
-  height: 50rem;
-  background: linear-gradient(100deg, #79FF5F 5.22%, #5FF4FF 95.51%);
-  margin-top: -0.25rem; /* -4px to rem */
-}
-
-.circle {
-  border-radius: 50%;
-  position: absolute;
-  background: #242029;
-}
-
-.big-circle {
-  width: 44rem; /* 700px to rem */
-  height: 44rem;
-  top: 1.8rem; /* -150px to rem */
-  left: 8rem; /* Align with hero section padding */
-}
-
-.small-circle {
-  width: 29rem; /* 450px to rem */
-  height: 29rem;
-  top: 14rem; /* -75px to rem */
-  right: 8rem; /* Align with hero section padding */
-}
-
-.skills {
-  text-align: center;
-  padding: 8rem;
-
-  h2 {
-    text-align: left;
-    font-size: 3rem;
-    margin-top: 36rem;
-    margin-bottom: 2rem;
-    color: #F2EFF5;
+    p {
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: #242029;
+    }
   }
 
-  .skills-wrapper {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 4rem;  /* Adds space between the heading and the skill circles */
-  }
+  // &-visuals {
+  //   position: relative;
+  //   flex: 1;
+  //   max-width: 40%;
+  //   height: 30rem;
 
-  .skills-column {
-    display: flex;
+    // .circle {
+    //   border-radius: 50%;
+    //   position: absolute;
+    //   z-index: 0;
+
+    //   &.big-circle {
+    //     width: 35rem;
+    //     height: 35rem;
+    //     background: linear-gradient(100deg, #79ff5f 20%, #5ff4ff 80%);
+    //     top: -2rem;
+    //     left: -5rem;
+    //   }
+
+    //   &.small-circle {
+    //     width: 20rem;
+    //     height: 20rem;
+    //     background: #242029;
+    //     top: 10rem;
+    //     right: -3rem;
+    //     border: 1px solid #5ff4ff;
+    //   }
+    // }
+  // }
+}
+
+@media (max-width: 768px) {
+  .about {
     flex-direction: column;
-    align-items: center;
+    padding: 2rem;
+
+    &-content {
+      max-width: 100%;
+      text-align: left;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    // &-visuals {
+    //   max-width: 100%;
+    //   height: 20rem;
+
+      // .circle {
+      //   &.big-circle {
+      //     width: 20rem; /* Smaller size */
+      //     height: 20rem;
+      //     top: -1rem;
+      //     left: 0;
+      //   }
+
+      //   &.small-circle {
+      //     width: 10rem; /* Smaller size */
+      //     height: 10rem;
+      //     top: 5rem;
+      //     right: 0;
+      //   }
+      // }
+    }
+  }
+
+
+
+ .skills {
+    text-align: center;
+    padding: 8rem;
+
+    h2 {
+      text-align: left;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #F2EFF5;
+    }
+
+    .skills-description {
+  text-align: left;
+  font-size: 1.8rem;
+  font-weight: 200;
+  color: #F2EFF5;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+
+    .skills-wrapper {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .skills-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5% 0%; /* Padding to space out the content */
+  border-bottom: 2px solid; /* Add a thick bottom border */
+  border-bottom-color: transparent; /* Default to no color */
+
+  /* Specify colors for left and right columns */
+  &.left-column {
+    border-bottom-color: #79FF5F; /* Green bottom border for left column */
+  }
+
+  &.right-column {
+    border-bottom-color: #5FF4FF; /* Blue bottom border for right column */
+  }
+}
 
     h3 {
+      text-align: center;
       font-size: 2rem;
+      font-weight: 400;
       margin-bottom: 1rem;
       color: #F2EFF5;
     }
@@ -239,7 +363,7 @@ const codingSkills = [
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.5rem;
-      margin-top: 3rem;  /* Adds space between the header and the first skill circle */
+      margin-top: 3rem;
     }
 
     .skill-circle {
@@ -264,81 +388,128 @@ const codingSkills = [
       }
     }
   }
-}
 
 .projects {
   text-align: center;
-  padding: 2rem 8rem;
+  padding: 2rem;
 
   h2 {
     font-size: 3.5rem;
     margin-bottom: 3rem;
     color: #F2EFF5;
     text-align: left;
+    margin-left: 6rem;
   }
 
-  .projects-bubble-wrapper {
-    position: relative;
-    height: 50rem;
-    display: block;
+ .projects-bubble-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; /* Space between bubbles */
+  position: relative;
+  height: auto; /* Allow dynamic height */
+}
+
+.project-bubble {
+  width: 22rem;
+  height: 22rem; /* Fixed height of the bubble */
+  border-radius: 50%;
+  background: #242029;
+  border: 1px solid #F2EFF5; /* Added border style */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;        /* Take up full width of the bubble */
+  height: 210px;        /* Height is 70% of the bubble's height */
+  object-fit: cover;  /* Ensure the image covers the area */
+}
+
+.bubble-content {
+  text-align: center;
+  padding: 1rem;
+
+  p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: transparent;
+    background: linear-gradient(90deg, #79FF5F 18.22%, #5FF4FF 85.51%);
+    background-clip: text;
   }
 
-  .project-bubble {
-    position: absolute;
-    border-radius: 50%;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    overflow: hidden;
-
-    img {
-      width: 85%;
-      height: 85%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    .bubble-content {
-      text-align: center;
-      padding: 1rem;
-
-      p {
-        font-size: 1.2rem;
-        margin-top: 0.5rem;
-      }
-
-      button {
-        margin-top: 0.5rem;
-        padding: 0.7rem 1.5rem;
-        background: #79FF5F;
-        border: none;
-        border-radius: 1rem;
-        color: #242029;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: #5FF4FF;
-        }
-      }
-    }
+  button {
+    font-family: inherit;
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 4rem;
+    color: #F2EFF5;
+    cursor: pointer;
+    transition: background-color 0.3s;
 
     &:hover {
-      transform: scale(1.1);
+      background: linear-gradient(100deg, #79FF5F 45.22%, #5FF4FF 95.51%);
+      color: #242029;
     }
   }
+}
+
+.project-bubble:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .projects-bubble-wrapper {
+    flex-direction: column; /* Stack bubbles vertically on mobile */
+    align-items: center;
+  }
+}
+
 
   /* Individual size and positioning for varied look */
-  .bubble-1 { width: 22rem; height: 22rem; top: 5rem; }
-  .bubble-2 { width: 18rem; height: 18rem; top: 2rem; right: 12rem; }
-  .bubble-3 { width: 24rem; height: 24rem; top: 15rem; left: 25rem; }
-  .bubble-4 { width: 20rem; height: 20rem; top: 30rem; right: 20rem; }
-  .bubble-5 { width: 19rem; height: 19rem; top: 10rem; right: 5rem; }
-  .bubble-6 { width: 23rem; height: 23rem; top: 40rem; left: 15rem; }
+  .bubble-1 { width: 22rem; height: 22rem;}
+  .bubble-2 { width: 22rem; height: 22rem;}
+  .bubble-3 { width: 22rem; height: 22rem;}
+  .bubble-4 { width: 22rem; height: 22rem;}
+  .bubble-5 { width: 22rem; height: 22rem;}
+  .bubble-6 { width: 22rem; height: 22rem;}
 }
+
+.impressum {
+  margin-top: 10rem;
+  padding: 4rem 8vw;
+  background: linear-gradient(100deg, #79FF5F 5.22%, #5FF4FF 95.51%);
+  text-align: left;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #242029;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #242029;
+
+      strong {
+        color: #242029;
+      }
+    }
+  }
+}
+
 
 </style>
