@@ -70,7 +70,7 @@
   .project-description h2 {
     font-size: 2.3rem;
     color: #F2EFF5;
-    margin-top: 2rem; /* Top margin for each h2 */
+    margin-top: 0rem; /* Top margin for each h2 */
   }
 
   .project-description p {

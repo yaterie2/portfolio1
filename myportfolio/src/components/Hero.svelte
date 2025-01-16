@@ -47,8 +47,8 @@
   <div class="about-content">
     <h2>About Me</h2>
     <p>
-      I am a passionate digital product designer and developer, combining creativity and technical methods to build meaningful user experiences.<br> The expertise I acquired at the HfG Schwäbisch Gmünd, in four semesters, helps me unite design and functionality, creating seamless, impactful digital solutions.
-    </p>
+I am a passionate digital product designer and developer, blending creativity with technical expertise to craft meaningful and engaging user experiences.<br>
+<br>Over four semesters at HfG Schwäbisch Gmünd, I honed my skills in uniting design and functionality, mastering the art of transforming complex ideas into seamless and impactful digital solutions.<br><br>My approach focuses on creating user-centered designs that not only look great but also perform flawlessly, ensuring every project delivers value and innovation.    </p>
   </div>
 </section>
 
@@ -57,6 +57,16 @@
   <p class="skills-description">
   Blending design and coding expertise to craft intuitive digital products, bridging creativity and technology to deliver meaningful user experiences.
 </p>
+<div class="skills-column first-column">
+      <h3>Design Methods</h3>
+      <div class="skills-list">
+        {#each designSkills as skill}
+          <div class="skill-circle">
+            <img src={skill.logo} alt={skill.name} title={skill.name} />
+          </div>
+        {/each}
+      </div>
+    </div>
   <div class="skills-wrapper">
     <div class="skills-column left-column">
       <h3>Design Tools</h3>
@@ -133,10 +143,12 @@
 <section class="impressum">
   <div class="impressum-rectangle"></div>
   <ul>
-    <li><strong>Name</strong> Yannick Schwab</li>
-    <li><strong>Location</strong> Stuttgart, Germany</li>
-    <li><strong>Contact</strong> schwabyx@t-online.de, yannick.schwab@hfg.gmuend</li>
-    <li><strong>College</strong> Hochschule für Gestaltung Schwäbisch Gmünd</li>
+    <li><strong>Name</strong><br> Yannick Schwab</li>
+    <li><strong>Location</strong><br> Stuttgart, Germany</li>
+    <li><strong>Contact</strong><br> schwabyx@t-online.de, yannick.schwab@hfg.gmuend</li>
+    <li><strong>College</strong><br> Hochschule für Gestaltung Schwäbisch Gmünd</li>
+    <li><strong><br></strong><br> </li>
+    <li>© 2025 Yannick Schwab. All rights reserved</li>
   </ul>
 </section>
 
@@ -147,7 +159,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  margin: 0 8vw;
+  margin: 0 8rem;
   color: #fff;
   overflow-x: hidden; /* Prevent content overflow */
   position: relative;
@@ -190,7 +202,7 @@
 
 
 .intro {
-  max-width: 70%;
+  max-width: 100%;
   text-align: left;
   z-index: 1;
   background-color: #242029;
@@ -227,11 +239,32 @@
   }
 }
 
+@media (max-width: 768px) {
+
+  .hero {
+    margin: 0rem 0.5rem 0rem 0.5rem;
+  }
+
+  .intro {
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}
+
 .about {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   gap: 4rem;
   margin: 8rem 8vw;
   padding: 4rem;
@@ -245,7 +278,7 @@
     color: #f2eff5;
 
     h2 {
-      font-size: 3rem;
+      font-size: 2.6rem;
       margin-bottom: 2rem;
       color: #79ff5f;
       background: #242029;
@@ -255,42 +288,12 @@
     }
 
     p {
-      font-size: 1.8rem;
+      font-size: 1.2rem;
       font-weight: 300;
       line-height: 1.6;
       color: #242029;
     }
   }
-
-  // &-visuals {
-  //   position: relative;
-  //   flex: 1;
-  //   max-width: 40%;
-  //   height: 30rem;
-
-    // .circle {
-    //   border-radius: 50%;
-    //   position: absolute;
-    //   z-index: 0;
-
-    //   &.big-circle {
-    //     width: 35rem;
-    //     height: 35rem;
-    //     background: linear-gradient(100deg, #79ff5f 20%, #5ff4ff 80%);
-    //     top: -2rem;
-    //     left: -5rem;
-    //   }
-
-    //   &.small-circle {
-    //     width: 20rem;
-    //     height: 20rem;
-    //     background: #242029;
-    //     top: 10rem;
-    //     right: -3rem;
-    //     border: 1px solid #5ff4ff;
-    //   }
-    // }
-  // }
 }
 
 @media (max-width: 768px) {
@@ -307,33 +310,11 @@
       }
 
       p {
-        font-size: 1.6rem;
+        font-size: 1rem;
       }
     }
-
-    // &-visuals {
-    //   max-width: 100%;
-    //   height: 20rem;
-
-      // .circle {
-      //   &.big-circle {
-      //     width: 20rem; /* Smaller size */
-      //     height: 20rem;
-      //     top: -1rem;
-      //     left: 0;
-      //   }
-
-      //   &.small-circle {
-      //     width: 10rem; /* Smaller size */
-      //     height: 10rem;
-      //     top: 5rem;
-      //     right: 0;
-      //   }
-      // }
     }
   }
-
-
 
  .skills {
     text-align: center;
@@ -341,20 +322,19 @@
 
     h2 {
       text-align: left;
-      font-size: 3rem;
+      font-size: 2.6rem;
       margin-bottom: 2rem;
       color: #F2EFF5;
     }
 
     .skills-description {
   text-align: left;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 200;
   color: #F2EFF5;
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
-
 
     .skills-wrapper {
       display: flex;
@@ -372,6 +352,9 @@
   border-bottom: 2px solid; /* Add a thick bottom border */
   border-bottom-color: transparent; /* Default to no color */
 
+  &.first-column {
+    border-bottom-color: #F2EFF5; /* Green bottom border for left column */
+  }
   /* Specify colors for left and right columns */
   &.left-column {
     border-bottom-color: #79FF5F; /* Green bottom border for left column */
@@ -384,7 +367,7 @@
 
     h3 {
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 400;
       margin-bottom: 1rem;
       color: #F2EFF5;
@@ -426,7 +409,7 @@
   padding: 2rem;
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 2.6rem;
     margin-bottom: 3rem;
     color: #F2EFF5;
     text-align: left;
@@ -447,7 +430,7 @@
   height: 22rem; /* Fixed height of the bubble */
   border-radius: 50%;
   background: #242029;
-  border: 1px solid #F2EFF5; /* Added border style */
+  border: 1px solid #f2eff51f; /* Added border style */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -496,6 +479,8 @@ img {
 
 .project-bubble:hover {
   transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(101, 101, 101, 0.1); /* Example shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -515,13 +500,16 @@ img {
 }
 
 .impressum {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 10rem;
-  padding: 4rem 8vw;
+  padding: 3rem 8vw 1rem 8vw;
   background: linear-gradient(100deg, #79FF5F 5.22%, #5FF4FF 95.51%);
   text-align: left;
 
   h2 {
-    font-size: 3rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
     color: #242029;
   }
@@ -531,7 +519,7 @@ img {
     padding: 0;
 
     li {
-      font-size: 1.8rem;
+      font-size: 1rem;
       margin-bottom: 1rem;
       color: #242029;
 
