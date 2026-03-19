@@ -1,0 +1,224 @@
+$green: #79FF5F;
+$cyan: #5FF4FF;
+$text: #F2EFF5;
+$muted: rgba(242, 239, 245, 0.5);
+$border: rgba(242, 239, 245, 0.08);
+$surface: #211d2b;
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $green;
+  border: 1px solid rgba($green, 0.3);
+  border-radius: 3rem;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.projects {
+  padding: 6rem 0 4rem;
+  border-top: 1px solid $border;
+  overflow: hidden;
+}
+
+.projects-header {
+  padding: 0 8vw;
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: $text;
+    margin: 0;
+  }
+}
+
+.carousel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 3vw;
+}
+
+.carousel-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  min-height: 420px;
+}
+
+.carousel-card {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.card-center {
+  width: clamp(280px, 36vw, 480px);
+  background: $surface;
+  border: 1px solid rgba($green, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba($green, 0.08);
+  z-index: 2;
+
+  .card-img {
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: clamp(180px, 22vw, 280px);
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover .card-img img {
+    transform: scale(1.04);
+  }
+}
+
+.card-body {
+  padding: 1.6rem;
+}
+
+.card-category {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $green;
+  margin-bottom: 0.5rem;
+}
+
+.card-body h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text;
+  margin: 0 0 1.2rem;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $cyan;
+  text-decoration: none;
+  transition: gap 0.2s;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    gap: 0.8rem;
+
+    svg {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.card-side {
+  width: clamp(160px, 20vw, 260px);
+  opacity: 0.35;
+  cursor: pointer;
+  transform: scale(0.88);
+  border: 1px solid $border;
+  background: $surface;
+
+  img {
+    width: 100%;
+    height: clamp(120px, 16vw, 200px);
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    opacity: 0.55;
+  }
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: $surface;
+  border: 1px solid $border;
+  color: $text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background: rgba($green, 0.12);
+    border-color: rgba($green, 0.4);
+    transform: scale(1.08);
+  }
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  padding: 0 8vw;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba($text, 0.15);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, width 0.3s, border-radius 0.3s;
+
+  &.active {
+    background: linear-gradient(90deg, $green, $cyan);
+    width: 26px;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 700px) {
+  .carousel-wrap {
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+  }
+
+  .card-side {
+    display: none;
+  }
+
+  .card-center {
+    width: 88vw;
+  }
+
+  .carousel-stage {
+    min-height: auto;
+  }
+}

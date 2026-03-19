@@ -1,0 +1,11 @@
+  .main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 8rem;
+  color: #fff;
+  overflow-x: hidden; /* Prevent content overflow */
+  position: relative;
+}

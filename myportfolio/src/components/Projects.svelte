@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<!-- <script context="module" lang="ts">
   // Define and export the project data
   export const projects = [
     {
@@ -18,4 +18,4 @@
       images: ["/image3.png", "/image4.png"]
     }
   ];
-</script>
+</script> -->

@@ -1,0 +1,179 @@
+$green: #79FF5F;
+$cyan: #5FF4FF;
+$text: #F2EFF5;
+$muted: rgba(242, 239, 245, 0.5);
+$border: rgba(242, 239, 245, 0.08);
+$surface: #211d2b;
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $green;
+  border: 1px solid rgba($green, 0.3);
+  border-radius: 3rem;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.skills {
+  padding: 6rem 8vw;
+  border-top: 1px solid $border;
+}
+
+.skills-header {
+  margin-bottom: 3.5rem;
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: $text;
+    margin: 0 0 0.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $muted;
+    font-weight: 300;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.skills-card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 1.5rem;
+  padding: 2rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $green, $cyan);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    border-color: rgba($green, 0.2);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.methods-card::before {
+  background: linear-gradient(90deg, $text, rgba($text, 0.2));
+}
+
+.card-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $green;
+  margin-bottom: 0.35rem;
+}
+
+.skills-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: $text;
+  margin: 0 0 1.8rem;
+}
+
+.methods-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.method-tag {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $text;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border;
+  border-radius: 3rem;
+  padding: 0.45rem 1rem;
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba($text, 0.25);
+  }
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tool-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border;
+  border-radius: 3rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: default;
+
+  &:hover {
+    border-color: rgba($green, 0.35);
+    background: rgba($green, 0.06);
+  }
+
+  span {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: $text;
+    white-space: nowrap;
+  }
+}
+
+.tool-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills {
+    padding: 4rem 5vw;
+  }
+}

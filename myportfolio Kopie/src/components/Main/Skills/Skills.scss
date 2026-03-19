@@ -1,0 +1,85 @@
+.skills {
+    text-align: center;
+    h2 {
+      text-align: left;
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+      color: #F2EFF5;
+    }
+
+    .skills-description {
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: #F2EFF5;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+    .skills-wrapper {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .skills-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5% 0%; /* Padding to space out the content */
+  border-bottom: 2px solid; /* Add a thick bottom border */
+  border-bottom-color: transparent; /* Default to no color */
+
+  &.methods {
+    border-bottom-color: #F2EFF5; /* Green bottom border for left column */
+  }
+  /* Specify colors for left and right columns */
+  &.design {
+    border-bottom-color: #79FF5F; /* Green bottom border for left column */
+  }
+
+  &.coding {
+    border-bottom-color: #5FF4FF; /* Blue bottom border for right column */
+  }
+}
+
+    h3 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: #F2EFF5;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .skill-circle {
+      width: 5rem;
+      height: 5rem;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: transform 0.3s;
+
+      img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
