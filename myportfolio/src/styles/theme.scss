@@ -1,19 +1,82 @@
 @use 'config';
 
-$light: ();
+// ─── TYPOGRAPHY ───────────────────────────────────────
+$font-family: 'Kumbh Sans', sans-serif;
+$font-url:    'https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap';
 
-$dark: ();
+// ─── BRAND COLORS (Dark / Default) ───────────────────
+$green: #79FF5F;
+$cyan:  #5FF4FF;
 
-@function to-rem($value) {
-	@return math.div($value, 16) * 1rem;
+// ─── SCSS-FALLBACK-VARIABLEN (Dark als Default) ───────
+$bg:      #181520;
+$surface: #211d2b;
+$text:    #F2EFF5;
+$muted:   rgba(242, 239, 245, 0.65);
+$border:  rgba(242, 239, 245, 0.08);
+
+// ─── DESIGN TOKENS ────────────────────────────────────
+$gradient-brand:  linear-gradient(90deg, $green 0%, $cyan 100%);
+$gradient-hero:   linear-gradient(100deg, $green 5.22%, $cyan 95.51%);
+$radius-sm:       0.5rem;
+$radius-md:       1.25rem;
+$radius-lg:       1.5rem;
+$radius-pill:     3rem;
+$shadow-card:     0 20px 60px rgba(0, 0, 0, 0.5);
+$shadow-portrait: 0 32px 80px rgba(0, 0, 0, 0.45);
+
+// ─── CSS CUSTOM PROPERTIES ────────────────────────────
+
+// DARK (default)
+:root,
+[data-theme='dark'] {
+  --c-bg:      #181520;
+  --c-surface: #211d2b;
+  --c-text:    #F2EFF5;
+  --c-muted:   rgba(242, 239, 245, 0.65);
+  --c-border:  rgba(242, 239, 245, 0.08);
+
+  // Brand-Farben: satt, da dunkler Hintergrund
+  --c-green:   #79FF5F;
+  --c-cyan:    #5FF4FF;
+  --c-gradient: linear-gradient(90deg, #79FF5F 0%, #5FF4FF 100%);
 }
 
+// LIGHT
+[data-theme='light'] {
+  --c-bg:      #F0EEF8;
+  --c-surface: #FFFFFF;
+  --c-text:    #1a1625;
+  --c-muted:   rgba(26, 22, 37, 0.58);
+  --c-border:  rgba(26, 22, 37, 0.1);
+
+  // Brand-Farben abdunkeln für ausreichend Kontrast auf hellem Grund
+  --c-green:   #2a9c10;
+  --c-cyan:    #0088aa;
+  --c-gradient: linear-gradient(90deg, #2a9c10 0%, #0088aa 100%);
+}
+
+// SUNSET
+[data-theme='sunset'] {
+  --c-bg:      #150b04;
+  --c-surface: #241408;
+  --c-text:    #FAE3C8;
+  --c-muted:   rgba(250, 227, 200, 0.65);
+  --c-border:  rgba(250, 227, 200, 0.08);
+
+  // Brand-Farben: warme Orange/Rot-Töne
+  --c-green:   #FF8C42;
+  --c-cyan:    #FFB347;
+  --c-gradient: linear-gradient(90deg, #FF8C42 0%, #FFB347 100%);
+}
+
+// ─── CSS CUSTOM PROPERTIES (emit to :root) ────────────
 @mixin emit($theme) {
-	@each $token, $value in $theme {
-		--#{config.$prefix}-#{$token}: #{$value};
-	}
+  @each $token, $value in $theme {
+    --#{config.$prefix}-#{$token}: #{$value};
+  }
 }
 
 @function token($name) {
-	@return var(--#{config.$prefix}-#{$name});
+  @return var(--#{config.$prefix}-#{$name});
 }

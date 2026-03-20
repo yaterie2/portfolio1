@@ -1,11 +1,7 @@
-$green: #79FF5F;
-$cyan: #5FF4FF;
-$text: #F2EFF5;
-$muted: rgba(242, 239, 245, 0.5);
-$border: rgba(242, 239, 245, 0.08);
+@use '../../../styles/theme' as *;
 
 .gradient-text {
-  background: linear-gradient(90deg, $green 0%, $cyan 100%);
+  background: var(--c-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -17,16 +13,16 @@ $border: rgba(242, 239, 245, 0.08);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: $green;
-  border: 1px solid rgba($green, 0.3);
-  border-radius: 3rem;
+  color: var(--c-green);
+  border: 1px solid color-mix(in srgb, var(--c-green) 30%, transparent);
+  border-radius: $radius-pill;
   padding: 0.3rem 1rem;
   margin-bottom: 1.8rem;
 }
 
 .about {
   padding: 8rem 8vw;
-  border-top: 1px solid $border;
+  border-top: 1px solid var(--c-border);
 }
 
 .about-inner {
@@ -40,12 +36,12 @@ $border: rgba(242, 239, 245, 0.08);
   font-size: clamp(2rem, 3.2vw, 2.8rem);
   font-weight: 700;
   line-height: 1.25;
-  color: $text;
+  color: var(--c-text);
   margin: 0;
 
   em {
     font-style: normal;
-    background: linear-gradient(90deg, $green, $cyan);
+    background: var(--c-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -56,26 +52,20 @@ $border: rgba(242, 239, 245, 0.08);
   font-size: 1.05rem;
   font-weight: 300;
   line-height: 1.85;
-  color: $muted;
+  color: var(--c-muted);
   margin-bottom: 1.3rem;
 
-  &:last-of-type {
-    margin-bottom: 3rem;
-  }
+  &:last-of-type { margin-bottom: 3rem; }
 }
 
 .about-stats {
   display: flex;
   gap: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid $border;
+  border-top: 1px solid var(--c-border);
 }
 
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
+.stat { display: flex; flex-direction: column; gap: 0.3rem; }
 
 .stat-number {
   font-size: 2.2rem;
@@ -86,21 +76,12 @@ $border: rgba(242, 239, 245, 0.08);
 .stat-label {
   font-size: 0.78rem;
   font-weight: 500;
-  color: $muted;
+  color: var(--c-muted);
   letter-spacing: 0.04em;
 }
 
 @media (max-width: 860px) {
-  .about {
-    padding: 5rem 6vw;
-  }
-
-  .about-inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .about-stats {
-    gap: 2rem;
-  }
+  .about { padding: 5rem 6vw; }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .about-stats { gap: 2rem; }
 }

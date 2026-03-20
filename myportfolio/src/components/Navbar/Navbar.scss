@@ -1,0 +1,206 @@
+@use '../../styles/theme' as *;
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // Feste Höhe & Padding — ändert sich nicht beim Scrollen
+  padding: 1.2rem 8vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: color-mix(in srgb, var(--c-bg) 85%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: var(--c-border);
+    // padding bleibt gleich — keine Größenänderung
+  }
+}
+
+// Logo als Button (kein <a> mit href)
+.nav-logo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 40px;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  &:hover img { opacity: 0.75; }
+}
+
+// Rechte Seite: Links + Theme + Burger
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-btn {
+  display: block;
+  padding: 0.45rem 1rem;
+  color: var(--c-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: $font-family;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: $radius-pill;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    color: var(--c-text);
+    background: rgba(128, 128, 128, 0.1);
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  margin-left: 0.25rem;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--c-text);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+
+    &.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    &.open:nth-child(2) { opacity: 0; }
+    &.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+// ─── THEME SWITCHER ───────────────────────────────────
+.theme-switcher {
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+.theme-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: var(--c-green);
+    background: color-mix(in srgb, var(--c-green) 10%, transparent);
+  }
+}
+
+.theme-dropdown {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: $radius-md;
+  padding: 0.4rem;
+  min-width: 175px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: $radius-sm;
+  border: none;
+  background: transparent;
+  color: var(--c-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-family: $font-family;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+  text-align: left;
+
+  .option-icon { font-size: 1rem; flex-shrink: 0; }
+
+  &:hover {
+    background: rgba(128, 128, 128, 0.1);
+    color: var(--c-text);
+  }
+
+  &.active {
+    background: color-mix(in srgb, var(--c-green) 15%, transparent);
+    color: var(--c-green);
+  }
+}
+
+// ─── MOBILE ───────────────────────────────────────────
+@media (max-width: 640px) {
+  nav { padding: 0.85rem 1.5rem; }
+
+  .burger { display: flex; z-index: 1001; }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: color-mix(in srgb, var(--c-bg) 97%, transparent);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 1000;
+
+    &.open {
+      display: flex;
+    }
+
+    .nav-link-btn {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--c-text);
+      padding: 0.75rem 2rem;
+    }
+  }
+
+  .theme-dropdown { right: -0.5rem; }
+}

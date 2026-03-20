@@ -1,13 +1,14 @@
 @use './theme' as *;
 @use './mixins' as *;
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url($font-url);
 
 body {
-  background-color: #181520;
+  background-color: var(--c-bg);
   box-sizing: border-box;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: $font-family;
   overflow-x: hidden;
-  color: #F2EFF5;
+  color: var(--c-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 * {

@@ -1,9 +1,4 @@
-$green: #79FF5F;
-$cyan: #5FF4FF;
-$text: #F2EFF5;
-$muted: rgba(242, 239, 245, 0.5);
-$border: rgba(242, 239, 245, 0.08);
-$surface: #211d2b;
+@use '../../../styles/theme' as *;
 
 .section-tag {
   display: inline-block;
@@ -11,16 +6,16 @@ $surface: #211d2b;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: $green;
-  border: 1px solid rgba($green, 0.3);
-  border-radius: 3rem;
+  color: var(--c-green);
+  border: 1px solid color-mix(in srgb, var(--c-green) 30%, transparent);
+  border-radius: $radius-pill;
   padding: 0.3rem 1rem;
   margin-bottom: 1.8rem;
 }
 
 .skills {
   padding: 6rem 8vw;
-  border-top: 1px solid $border;
+  border-top: 1px solid var(--c-border);
 }
 
 .skills-header {
@@ -29,13 +24,13 @@ $surface: #211d2b;
   h2 {
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 700;
-    color: $text;
+    color: var(--c-text);
     margin: 0 0 0.75rem;
   }
 
   p {
     font-size: 1rem;
-    color: $muted;
+    color: var(--c-muted);
     font-weight: 300;
   }
 }
@@ -47,37 +42,32 @@ $surface: #211d2b;
 }
 
 .skills-card {
-  background: $surface;
-  border: 1px solid $border;
-  border-radius: 1.5rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: $radius-lg;
   padding: 2rem 2rem 2.5rem;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background 0.4s ease;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, $green, $cyan);
+    background: var(--c-gradient);
     opacity: 0.6;
     transition: opacity 0.3s;
   }
 
   &:hover {
-    border-color: rgba($green, 0.2);
-
-    &::before {
-      opacity: 1;
-    }
+    border-color: color-mix(in srgb, var(--c-green) 20%, transparent);
+    &::before { opacity: 1; }
   }
 }
 
 .methods-card::before {
-  background: linear-gradient(90deg, $text, rgba($text, 0.2));
+  background: linear-gradient(90deg, var(--c-text), color-mix(in srgb, var(--c-text) 20%, transparent));
 }
 
 .card-label {
@@ -85,72 +75,63 @@ $surface: #211d2b;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: $green;
+  color: var(--c-green);
   margin-bottom: 0.35rem;
 }
 
 .skills-card h3 {
   font-size: 1.15rem;
   font-weight: 600;
-  color: $text;
+  color: var(--c-text);
   margin: 0 0 1.8rem;
 }
 
-.methods-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
+.methods-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
 .method-tag {
   font-size: 0.85rem;
   font-weight: 500;
-  color: $text;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid $border;
-  border-radius: 3rem;
+  color: var(--c-text);
+  background: rgba(128, 128, 128, 0.08);
+  border: 1px solid var(--c-border);
+  border-radius: $radius-pill;
   padding: 0.45rem 1rem;
   transition: background 0.2s, border-color 0.2s;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba($text, 0.25);
+    background: rgba(128, 128, 128, 0.15);
+    border-color: rgba(128, 128, 128, 0.3);
   }
 }
 
-.tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
+.tools-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
 .tool-pill {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid $border;
-  border-radius: 3rem;
+  background: rgba(128, 128, 128, 0.06);
+  border: 1px solid var(--c-border);
+  border-radius: $radius-pill;
   padding: 0.35rem 0.85rem 0.35rem 0.35rem;
   transition: border-color 0.2s, background 0.2s;
   cursor: default;
 
   &:hover {
-    border-color: rgba($green, 0.35);
-    background: rgba($green, 0.06);
+    border-color: color-mix(in srgb, var(--c-green) 35%, transparent);
+    background: color-mix(in srgb, var(--c-green) 6%, transparent);
   }
 
   span {
     font-size: 0.82rem;
     font-weight: 400;
-    color: $text;
+    color: var(--c-text);
     white-space: nowrap;
   }
 }
 
 .tool-icon {
-  width: 26px;
-  height: 26px;
+  width: 26px; height: 26px;
   border-radius: 50%;
   background: #fff;
   display: flex;
@@ -159,21 +140,8 @@ $surface: #211d2b;
   flex-shrink: 0;
   overflow: hidden;
 
-  img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-  }
+  img { width: 70%; height: 70%; object-fit: contain; }
 }
 
-@media (max-width: 900px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .skills {
-    padding: 4rem 5vw;
-  }
-}
+@media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .skills { padding: 4rem 5vw; } }

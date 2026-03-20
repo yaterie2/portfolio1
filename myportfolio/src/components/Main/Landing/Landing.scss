@@ -1,12 +1,7 @@
-$bg: #181520;
-$green: #79FF5F;
-$cyan: #5FF4FF;
-$text: #F2EFF5;
-$muted: rgba(242, 239, 245, 0.5);
-$border: rgba(242, 239, 245, 0.08);
+@use '../../../styles/theme' as *;
 
 .gradient-text {
-  background: linear-gradient(90deg, $green 0%, $cyan 100%);
+  background: var(--c-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -20,14 +15,15 @@ $border: rgba(242, 239, 245, 0.08);
   justify-content: center;
   overflow: hidden;
   padding: 9rem 8vw 5rem;
+  transition: background-color 0.4s ease;
 }
 
 .hero-bg-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba($green, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba($green, 0.035) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--c-green) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--c-green) 4%, transparent) 1px, transparent 1px);
   background-size: 64px 64px;
   pointer-events: none;
   mask-image: radial-gradient(ellipse 70% 80% at 60% 50%, black 20%, transparent 100%);
@@ -50,7 +46,7 @@ $border: rgba(242, 239, 245, 0.08);
 .portrait-glow {
   position: absolute;
   inset: -30px;
-  background: radial-gradient(circle at 50% 50%, rgba($green, 0.2) 0%, transparent 65%);
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--c-green) 20%, transparent) 0%, transparent 65%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -59,11 +55,11 @@ $border: rgba(242, 239, 245, 0.08);
   width: 320px;
   height: 360px;
   object-fit: cover;
-  border-radius: 1.75rem;
+  border-radius: $radius-lg;
   position: relative;
   z-index: 1;
-  border: 1px solid $border;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--c-border);
+  box-shadow: $shadow-portrait;
   display: block;
 }
 
@@ -72,14 +68,14 @@ $border: rgba(242, 239, 245, 0.08);
   bottom: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba($bg, 0.9);
-  border: 1px solid $border;
+  background: color-mix(in srgb, var(--c-bg) 90%, transparent);
+  border: 1px solid var(--c-border);
   backdrop-filter: blur(12px);
-  border-radius: 3rem;
+  border-radius: $radius-pill;
   padding: 0.45rem 1.1rem;
   font-size: 0.8rem;
   font-weight: 500;
-  color: $text;
+  color: var(--c-text);
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -90,7 +86,7 @@ $border: rgba(242, 239, 245, 0.08);
 .badge-dot {
   width: 8px;
   height: 8px;
-  background: $green;
+  background: var(--c-green);
   border-radius: 50%;
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
@@ -112,7 +108,7 @@ $border: rgba(242, 239, 245, 0.08);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: $green;
+  color: var(--c-green);
   margin-bottom: 1.4rem;
 }
 
@@ -120,7 +116,7 @@ $border: rgba(242, 239, 245, 0.08);
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 700;
   line-height: 1.08;
-  color: $text;
+  color: var(--c-text);
   margin: 0 0 1.6rem;
 }
 
@@ -128,7 +124,7 @@ $border: rgba(242, 239, 245, 0.08);
   font-size: 1.15rem;
   font-weight: 300;
   line-height: 1.7;
-  color: $muted;
+  color: var(--c-muted);
   margin: 0 0 2.5rem;
 }
 
@@ -141,18 +137,19 @@ $border: rgba(242, 239, 245, 0.08);
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(90deg, $green, $cyan);
-  color: #181520;
+  background: var(--c-gradient);
+  color: var(--c-bg);
   font-weight: 700;
   font-size: 0.95rem;
+  font-family: $font-family;
   padding: 0.9rem 2.2rem;
-  border-radius: 3rem;
+  border-radius: $radius-pill;
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 35px rgba($green, 0.3);
+    box-shadow: 0 10px 35px color-mix(in srgb, var(--c-green) 35%, transparent);
   }
 }
 
@@ -160,19 +157,20 @@ $border: rgba(242, 239, 245, 0.08);
   display: inline-flex;
   align-items: center;
   background: transparent;
-  color: $text;
+  color: var(--c-text);
   font-weight: 500;
   font-size: 0.95rem;
+  font-family: $font-family;
   padding: 0.9rem 2.2rem;
-  border-radius: 3rem;
-  border: 1px solid $border;
+  border-radius: $radius-pill;
+  border: 1px solid var(--c-border);
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 
   &:hover {
-    border-color: rgba($cyan, 0.4);
-    color: $cyan;
-    background: rgba($cyan, 0.05);
+    border-color: color-mix(in srgb, var(--c-cyan) 40%, transparent);
+    color: var(--c-cyan);
+    background: color-mix(in srgb, var(--c-cyan) 5%, transparent);
   }
 }
 
@@ -189,18 +187,16 @@ $border: rgba(242, 239, 245, 0.08);
 .scroll-line {
   width: 40px;
   height: 1px;
-  background: linear-gradient(90deg, $green, transparent);
+  background: linear-gradient(90deg, var(--c-green), transparent);
   position: relative;
   overflow: hidden;
 
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: $green;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--c-green);
     animation: scrollSlide 2s ease-in-out infinite;
   }
 }
@@ -215,35 +211,14 @@ $border: rgba(242, 239, 245, 0.08);
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: $muted;
+  color: var(--c-muted);
 }
 
 @media (max-width: 860px) {
-  .hero {
-    padding: 7rem 6vw 4rem;
-  }
-
-  .hero-inner {
-    flex-direction: column;
-    gap: 3rem;
-    text-align: center;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-
-  .hero-cta {
-    justify-content: center;
-  }
-
-  .portrait {
-    width: 220px;
-    height: 250px;
-  }
-
-  .scroll-hint {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  .hero { padding: 7rem 6vw 4rem; }
+  .hero-inner { flex-direction: column; gap: 3rem; text-align: center; }
+  .hero-text { max-width: 100%; }
+  .hero-cta { justify-content: center; }
+  .portrait { width: 220px; height: 250px; }
+  .scroll-hint { left: 50%; transform: translateX(-50%); }
 }
