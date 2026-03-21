@@ -134,18 +134,26 @@
   flex-wrap: wrap;
 }
 
-.btn-primary {
+// Gemeinsame Button-Basis — reset browser defaults
+.btn-primary,
+.btn-ghost {
   display: inline-flex;
   align-items: center;
-  background: var(--c-gradient);
-  color: var(--c-bg);
-  font-weight: 700;
-  font-size: 0.95rem;
+  justify-content: center;
   font-family: $font-family;
+  font-size: 0.95rem;
+  font-weight: 700;
   padding: 0.9rem 2.2rem;
   border-radius: $radius-pill;
+  cursor: pointer;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.btn-primary {
+  background: var(--c-gradient);
+  color: var(--c-bg);
+  border: none;
 
   &:hover {
     transform: translateY(-2px);
@@ -154,18 +162,10 @@
 }
 
 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
   background: transparent;
   color: var(--c-text);
-  font-weight: 500;
-  font-size: 0.95rem;
-  font-family: $font-family;
-  padding: 0.9rem 2.2rem;
-  border-radius: $radius-pill;
+  // border explizit gesetzt — wird nicht von einem gemeinsamen Reset überschrieben
   border: 1px solid var(--c-border);
-  text-decoration: none;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
 
   &:hover {
     border-color: color-mix(in srgb, var(--c-cyan) 40%, transparent);

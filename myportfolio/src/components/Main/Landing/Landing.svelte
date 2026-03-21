@@ -1,5 +1,6 @@
 <script>
   import "./Landing.scss";
+  import { scrollToSection } from '../../../lib/navigation';
 
   export let name = "Yannick Schwab";
   export let subtitle = "Connecting the worlds of design and coding";
@@ -21,8 +22,12 @@
       <h1>Hello, I'm<br><span class="gradient-text">{name}</span></h1>
       <p class="hero-sub">{subtitle}</p>
       <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#about-me" class="btn-ghost">About Me</a>
+        <button class="btn-primary" on:click={() => scrollToSection('projects')}>
+          View Projects
+        </button>
+        <button class="btn-ghost" on:click={() => scrollToSection('about-me')}>
+          About Me
+        </button>
       </div>
     </div>
   </div>

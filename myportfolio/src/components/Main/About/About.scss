@@ -21,7 +21,7 @@
 }
 
 .about {
-  padding: 8rem 8vw;
+  padding: 6rem 8vw;
   border-top: 1px solid var(--c-border);
 }
 
@@ -65,7 +65,11 @@
   border-top: 1px solid var(--c-border);
 }
 
-.stat { display: flex; flex-direction: column; gap: 0.3rem; }
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
 
 .stat-number {
   font-size: 2.2rem;
@@ -81,7 +85,7 @@
 }
 
 @media (max-width: 860px) {
-  .about { padding: 5rem 6vw; }
+  .about { padding: 4rem 5vw; }
   .about-inner { grid-template-columns: 1fr; gap: 3rem; }
   .about-stats { gap: 2rem; }
 }

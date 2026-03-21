@@ -1,14 +1,11 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
-  import { browser } from '$app/environment';
   import Navbar from '../components/Navbar/Navbar.svelte';
   import Main from '../components/Main/Main.svelte';
   import '../styles/global.scss';
 
   onMount(() => {
-    if (!browser) return;
-
-    // Hash aus URL entfernen ohne Seitenreload und ohne neuen History-Eintrag
+    // Hash aus URL entfernen
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname);
     }

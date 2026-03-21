@@ -1,8 +1,9 @@
 <script lang="ts">
   import "./Navbar.scss";
   import { onMount } from "svelte";
-  import { themeMode, resolveTheme } from "../../lib/themeStore";
+  import { themeMode } from "../../lib/themeStore";
   import type { ThemeMode } from "../../lib/themeStore";
+  import { scrollToSection } from "../../lib/navigation";
 
   export let links: { name: string; target: string }[] = [
     { name: "About",    target: "about-me" },
@@ -14,21 +15,14 @@
   let menuOpen: boolean = false;
   let dropdownOpen: boolean = false;
 
-  function handleScroll(): void {
-    scrolled = window.scrollY > 40;
-  }
-
-  // Smooth scroll ohne URL-Hash
-  function scrollTo(targetId: string): void {
-    menuOpen = false;
-    const el = document.getElementById(targetId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  function handleScroll(e: Event) {
+    const target = e.target as HTMLElement;
+    scrolled = (target.scrollTop ?? window.scrollY) > 40;
   }
 
   function scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Nutzt das Snap-System damit currentIndex und Depth-Effekt korrekt bleiben
+    scrollToSection('__top');
   }
 
   function closeDropdown(e: MouseEvent) {
@@ -43,36 +37,36 @@
   }
 
   onMount(() => {
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("click", closeDropdown);
+    const mainEl = document.querySelector<HTMLElement>('.main');
+    const scrollTarget = mainEl ?? window;
+    scrollTarget.addEventListener('scroll', handleScroll as EventListener);
+    window.addEventListener('click', closeDropdown);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("click", closeDropdown);
+      scrollTarget.removeEventListener('scroll', handleScroll as EventListener);
+      window.removeEventListener('click', closeDropdown);
     };
   });
 
   const options: { mode: ThemeMode; label: string; icon: string }[] = [
-    { mode: 'auto',   label: 'Auto',            icon: '🕐' },
-    { mode: 'light',  label: 'Hell',             icon: '☀️' },
-    { mode: 'dark',   label: 'Dunkel',           icon: '🌙' },
-    { mode: 'sunset', label: 'Sonnenuntergang',  icon: '🌅' },
+    { mode: 'auto',   label: 'Auto',           icon: '🕐' },
+    { mode: 'light',  label: 'Hell',            icon: '☀️' },
+    { mode: 'dark',   label: 'Dunkel',          icon: '🌙' },
+    { mode: 'sunset', label: 'Sonnenuntergang', icon: '🌅' },
   ];
 
   $: currentIcon = options.find(o => o.mode === $themeMode)?.icon ?? '🕐';
 </script>
 
 <nav id="navbar" class:scrolled>
-  <!-- Logo → scrollt nach oben, kein Hash in URL -->
   <button class="nav-logo" on:click={scrollToTop} aria-label="Nach oben">
     <img src="/LogoPortfolio.png" alt="Logo" />
   </button>
 
-  <!-- Rechte Seite: Links + Theme-Switcher -->
   <div class="nav-right">
     <ul class="nav-links" class:open={menuOpen}>
       {#each links as link}
         <li>
-          <button class="nav-link-btn" on:click={() => scrollTo(link.target)}>
+          <button class="nav-link-btn" on:click={() => { scrollToSection(link.target); menuOpen = false; }}>
             {link.name}
           </button>
         </li>
@@ -104,7 +98,6 @@
       {/if}
     </div>
 
-    <!-- Burger nur auf Mobile -->
     <button
       class="burger"
       aria-label="Toggle menu"
