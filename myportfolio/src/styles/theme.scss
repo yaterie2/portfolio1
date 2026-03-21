@@ -23,7 +23,7 @@ $radius-md:       1.25rem;
 $radius-lg:       1.5rem;
 $radius-pill:     3rem;
 $shadow-card:     0 20px 60px rgba(0, 0, 0, 0.5);
-$shadow-portrait: 0 32px 80px rgba(0, 0, 0, 0.45);
+$shadow-portrait: 0 12px 35px rgba(0, 0, 0, 0.12);
 
 // ─── CSS CUSTOM PROPERTIES ────────────────────────────
 
@@ -44,8 +44,8 @@ $shadow-portrait: 0 32px 80px rgba(0, 0, 0, 0.45);
 
 // LIGHT
 [data-theme='light'] {
-  --c-bg:      #F0EEF8;
-  --c-surface: #FFFFFF;
+  --c-bg:      #F8F7FC;
+  --c-surface: #F8F7FC;
   --c-text:    #1a1625;
   --c-muted:   rgba(26, 22, 37, 0.58);
   --c-border:  rgba(26, 22, 37, 0.1);
