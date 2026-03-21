@@ -4,15 +4,18 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // Feste Höhe & Padding — ändert sich nicht beim Scrollen
-  padding: 1.2rem 8vw;
+  padding: 0.85rem 8vw;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
-  transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+  transition: background 0.4s ease,
+              backdrop-filter 0.4s ease,
+              border-color 0.4s ease,
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s ease;
   background: transparent;
   border-bottom: 1px solid transparent;
 
@@ -21,11 +24,16 @@ nav {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-color: var(--c-border);
-    // padding bleibt gleich — keine Größenänderung
+  }
+
+  // Mobile: beim Runterscrollen nach oben schieben
+  &.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
-// Logo als Button (kein <a> mit href)
 .nav-logo {
   background: none;
   border: none;
@@ -43,7 +51,6 @@ nav {
   &:hover img { opacity: 0.75; }
 }
 
-// Rechte Seite: Links + Theme + Burger
 .nav-right {
   display: flex;
   align-items: center;
@@ -101,7 +108,6 @@ nav {
   }
 }
 
-// ─── THEME SWITCHER ───────────────────────────────────
 .theme-switcher {
   position: relative;
   margin-left: 0.5rem;
@@ -171,7 +177,6 @@ nav {
   }
 }
 
-// ─── MOBILE ───────────────────────────────────────────
 @media (max-width: 640px) {
   nav { padding: 0.85rem 1.5rem; }
 
@@ -190,9 +195,7 @@ nav {
     gap: 1rem;
     z-index: 1000;
 
-    &.open {
-      display: flex;
-    }
+    &.open { display: flex; }
 
     .nav-link-btn {
       font-size: 1.4rem;

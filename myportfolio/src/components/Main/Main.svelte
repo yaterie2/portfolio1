@@ -9,9 +9,10 @@
 
   const MOBILE_BREAKPOINT = 860;
 
-  // Erst ab diesem Anteil der Section-Höhe beginnt der Effekt
-  const EXIT_START  = 0.25; // Section muss 25% rausgescrollt sein bevor Blur/Scale beginnt
-  const ENTER_START = 0.35; // Section muss 35% eingetreten sein bevor Scale beginnt
+  const EXIT_START_DESKTOP  = 0.25;
+  const ENTER_START_DESKTOP = 0.35;
+  const EXIT_START_MOBILE   = 0.75;
+  const ENTER_START_MOBILE  = 0.25;
 
   onMount(() => {
     let isDesktop = window.innerWidth > MOBILE_BREAKPOINT;
@@ -28,23 +29,20 @@
       const sTop    = section.offsetTop;
       const sHeight = section.offsetHeight || vh;
 
-      // 0 = gerade am oberen Rand, 1 = komplett rausgescrollt
-      const exitRaw = Math.max(0, Math.min(1, (scrollTop - sTop) / sHeight));
-      // Erst ab EXIT_START starten, dann auf 0-1 normalisieren
-      const exit = Math.max(0, (exitRaw - EXIT_START) / (1 - EXIT_START));
+      const exitStart  = isDesktop ? EXIT_START_DESKTOP  : EXIT_START_MOBILE;
+      const enterStart = isDesktop ? ENTER_START_DESKTOP : ENTER_START_MOBILE;
 
-      // 1 = noch komplett unten, 0 = vollständig eingetreten
+      const exitRaw  = Math.max(0, Math.min(1, (scrollTop - sTop) / sHeight));
+      const exit     = Math.max(0, (exitRaw - exitStart) / (1 - exitStart));
+
       const enterRaw = Math.max(0, Math.min(1, (sTop + sHeight - scrollTop - vh) / sHeight));
-      // Erst ab ENTER_START starten
-      const enter = Math.max(0, (enterRaw - (1 - ENTER_START)) / ENTER_START);
+      const enter    = Math.max(0, (enterRaw - (1 - enterStart)) / enterStart);
 
       if (exitRaw > 0 && exitRaw > enterRaw) {
-        // Rausscrollen nach oben
         section.style.transform = `scale(${(1 - exit * 0.07).toFixed(4)})`;
         section.style.opacity   = (1 - exit * 0.45).toFixed(4);
         section.style.filter    = exit > 0.15 ? `blur(${(exit * 3).toFixed(2)}px)` : '';
       } else if (enterRaw > 0) {
-        // Von unten reinkommen
         section.style.transform = `scale(${(0.93 + (1 - enter) * 0.07).toFixed(4)})`;
         section.style.opacity   = (0.55 + (1 - enter) * 0.45).toFixed(4);
         section.style.filter    = '';

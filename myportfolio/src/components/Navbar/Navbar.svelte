@@ -12,16 +12,11 @@
   ];
 
   let scrolled: boolean = false;
+  let hidden: boolean = false;
   let menuOpen: boolean = false;
   let dropdownOpen: boolean = false;
 
-  function handleScroll(e: Event) {
-    const target = e.target as HTMLElement;
-    scrolled = (target.scrollTop ?? window.scrollY) > 40;
-  }
-
   function scrollToTop(): void {
-    // Nutzt das Snap-System damit currentIndex und Depth-Effekt korrekt bleiben
     scrollToSection('__top');
   }
 
@@ -37,12 +32,43 @@
   }
 
   onMount(() => {
+    let lastScrollY = 0;
+    const MOBILE_BREAKPOINT = 860;
+
+    function getScrollY(): number {
+      if (window.innerWidth <= MOBILE_BREAKPOINT) {
+        return window.scrollY;
+      }
+      const main = document.querySelector<HTMLElement>('.main');
+      return main ? main.scrollTop : window.scrollY;
+    }
+
+    function handleScroll() {
+      const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+      const currentY = getScrollY();
+
+      scrolled = currentY > 40;
+
+      if (isMobile) {
+        hidden = currentY > lastScrollY && currentY > 60;
+      } else {
+        hidden = false;
+      }
+
+      lastScrollY = currentY;
+    }
+
+    // Desktop: lauscht auf .main Container
     const mainEl = document.querySelector<HTMLElement>('.main');
-    const scrollTarget = mainEl ?? window;
-    scrollTarget.addEventListener('scroll', handleScroll as EventListener);
+    if (mainEl) mainEl.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Mobile: lauscht auf window
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('click', closeDropdown);
+
     return () => {
-      scrollTarget.removeEventListener('scroll', handleScroll as EventListener);
+      if (mainEl) mainEl.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('click', closeDropdown);
     };
   });
@@ -57,7 +83,7 @@
   $: currentIcon = options.find(o => o.mode === $themeMode)?.icon ?? '🕐';
 </script>
 
-<nav id="navbar" class:scrolled>
+<nav id="navbar" class:scrolled class:hidden>
   <button class="nav-logo" on:click={scrollToTop} aria-label="Nach oben">
     <img src="/LogoPortfolio.png" alt="Logo" />
   </button>
