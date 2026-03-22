@@ -22,7 +22,8 @@
   }
 
   let iframePanelEl: HTMLElement;
-  let scrollProgress = 0; // 0 = oben, 1 = voll animiert
+  let iframeProgress = 0; // Panel-basiert: für iframe Wachstum (1 = Panel sichtbar)
+  let fadeProgress   = 0; // ScrollTop-basiert: für hero-inner Abdunkelung (0 beim Laden)
 
   function updateScrollAnimation(): void {
     if (!iframePanelEl) return;
@@ -31,16 +32,16 @@
       ? document.querySelector('.main') as HTMLElement | null
       : null;
     const scrollTop = container ? container.scrollTop : window.scrollY;
-    const vh = container ? container.clientHeight : window.innerHeight;
+    const vh        = container ? container.clientHeight : window.innerHeight;
 
-    // Panel-Position relativ zum Viewport
-    const rect = iframePanelEl.getBoundingClientRect();
-    // Animation beginnt wenn Panel in den Viewport kommt, endet wenn es zentriert ist
-    const start = vh;        // Panel-Oberkante tritt in Viewport ein
-    const end   = vh * 0.3;  // Panel ist fast zentriert
+    // iFrame-Progress: Panel-Position basiert, startet wenn Panel sichtbar wird
+    const rect  = iframePanelEl.getBoundingClientRect();
+    const start = vh;
+    const end   = vh * 0.3;
+    iframeProgress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
 
-    const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
-    scrollProgress = progress;
+    // Fade-Progress: scrollTop basiert, garantiert 0 beim Laden
+    fadeProgress = Math.max(0, Math.min(1, scrollTop / (vh * 0.4)));
   }
 
   function handleScroll(): void {
@@ -88,7 +89,7 @@
 <section class="hero" id="hero">
   <div class="hero-bg-grid"></div>
 
-  <div class="hero-inner">
+  <div class="hero-inner" style="--progress: {fadeProgress}">
     <div class="hero-portrait-wrap">
       <div class="portrait-glow"></div>
       <img src="/PortraitPortfolio.png" alt="Portrait Yannick Schwab" class="portrait" />
@@ -114,7 +115,7 @@
 
   <div class="iframe-wrap">
     <!-- Skizze: nur Desktop, verblasst beim Scrollen -->
-    <div class="sketch-hint" style="--progress: {scrollProgress}">
+    <div class="sketch-hint" style="--progress: {iframeProgress}">
       <svg viewBox="0 0 280 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <!-- Text rechtsbündig, leicht schräg -->
         <text x="220" y="30"  class="sketch-text" text-anchor="end" transform="rotate(-4 220 30)">A taste of my</text>
@@ -130,7 +131,7 @@
     <div
       class="iframe-panel"
       bind:this={iframePanelEl}
-      style="--progress: {scrollProgress}"
+      style="--progress: {iframeProgress}"
     >
     <div class="iframe-header">
       <div class="iframe-dots">

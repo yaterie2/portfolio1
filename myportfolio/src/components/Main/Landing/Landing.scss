@@ -41,6 +41,8 @@
   gap: 7rem;
   position: relative;
   z-index: 1;
+  opacity: calc(1 - var(--progress, 0) * 1.4);
+  transition: opacity 0.08s ease-out;
 }
 
 .hero-portrait-wrap {
@@ -206,7 +208,7 @@
 // ── IFRAME PANEL ──────────────────────────────────────
 .iframe-panel {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--c-surface);
   border: 1px solid var(--c-border);
   border-radius: $radius-lg;
