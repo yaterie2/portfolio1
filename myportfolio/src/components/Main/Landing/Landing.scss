@@ -109,7 +109,7 @@
 .hero-eyebrow {
   display: block;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--c-green);
@@ -118,7 +118,7 @@
 
 .hero-text h1 {
   font-size: clamp(3rem, 5vw, 5rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.08;
   color: var(--c-text);
   margin: 0 0 1.6rem;
@@ -146,7 +146,7 @@
   justify-content: center;
   font-family: $font-family;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.9rem 2.2rem;
   border-radius: $radius-pill;
   cursor: pointer;
