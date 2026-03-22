@@ -107,8 +107,8 @@
 
 <main class="main">
   <div class="snap-section"><Landing /></div>
-  <div class="snap-section"><About /></div>
-  <div class="snap-section"><Skills /></div>
   <div class="snap-section"><Projects /></div>
+  <div class="snap-section"><Skills /></div>
+  <div class="snap-section"><About /></div>
   <div class="snap-section snap-section--footer"><Imprint /></div>
 </main>
