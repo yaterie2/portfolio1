@@ -7,6 +7,10 @@
   color: transparent;
 }
 
+.name-nowrap {
+  white-space: nowrap;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -215,10 +219,24 @@
 }
 
 @media (max-width: 860px) {
-  .hero { padding: 7rem 6vw 4rem; }
-  .hero-inner { flex-direction: column; gap: 3rem; text-align: center; }
+  .hero {
+    padding: 6rem 6vw 2rem;
+    justify-content: flex-start;
+  }
+  .hero-inner {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
   .hero-text { max-width: 100%; }
   .hero-cta { justify-content: center; }
   .portrait { width: 220px; height: 250px; }
-  .scroll-hint { left: 50%; transform: translateX(-50%); }
+  .scroll-hint {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
 }

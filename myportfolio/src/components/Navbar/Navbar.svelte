@@ -6,7 +6,7 @@
   import { scrollToSection } from "../../lib/navigation";
 
   export let links: { name: string; target: string }[] = [
-    { name: "About",    target: "about-me" },
+    { name: "About Me",    target: "about-me" },
     { name: "Skills",   target: "skills" },
     { name: "Projects", target: "projects" },
   ];

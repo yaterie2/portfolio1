@@ -5,7 +5,7 @@
 <section class="about" id="about-me">
   <div class="about-inner">
     <div class="about-left">
-      <span class="section-tag">About</span>
+      <span class="section-tag">About Me</span>
       <h2>Crafting experiences<br><em>at the intersection</em><br>of design & code.</h2>
     </div>
     <div class="about-right">
